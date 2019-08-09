@@ -1,0 +1,10 @@
+{
+    "bloggang": {
+        "url": "https://www.bloggang.com"
+    },
+    "mongodb": {
+        "url" : "localhost",
+        "port" : 27017,
+        "dbname" : "bloggang"
+    }
+}

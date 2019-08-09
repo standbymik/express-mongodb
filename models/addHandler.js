@@ -1,8 +1,7 @@
 import mongoConnection from '../connectMongo/mongoClient'
 import { validatorResult, errorFormat } from '../middlewares/validatorResult'
-import { bloggang } from 'config'
 
-const blogHandler = async (req, res) => {
+const addHandler = async (req, res) => {
     return mongoConnection(async (db) => {
 
         const errors = validatorResult(req)
@@ -10,15 +9,14 @@ const blogHandler = async (req, res) => {
             return errorFormat(errors, res)
         }
 
-        const { id, name } = req.query
+        console.log(req.body)
+        res.json(req.body)
 
-        // res.json({ id, name })
-
-        const resultj = await db.collection('members').insertOne({ name: name })
-        return res.json({ name })
+        // const result = await db.collection('members').insertOne({ name: 'mik' })
+        // return res.json({ result })
     })
 }
 
 export {
-    blogHandler
+    addHandler
 }

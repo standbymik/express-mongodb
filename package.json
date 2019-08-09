@@ -6,7 +6,8 @@
   "author": "Bloggang",
   "license": "MIT",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon -L app.js --exec babel-node"
+    "dev": "NODE_ENV=development nodemon -L app.js --exec babel-node",
+    "start": "NODE_ENV=production nodemon -L app.js --exec babel-node"
   },
   "dependencies": {
     "@babel/preset-env": "^7.5.5",

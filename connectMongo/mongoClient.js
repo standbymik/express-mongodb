@@ -4,7 +4,7 @@ import { MongoClient } from 'mongodb'
 const { url, port, dbname } = mongodb
 // const { url, port, dbname, username, password } = mongodb
 
-export default async function Connection(callback, errorCallback = null) {
+export default async function mongoConnection(callback, errorCallback = null) {
 
     let conn = null
 

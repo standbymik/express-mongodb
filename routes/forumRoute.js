@@ -7,6 +7,7 @@ import { portMenberHandler } from '../models/portMenberHandler'
 import { updateHandler } from '../models/updateHandler'
 import { deleteHandler} from '../models/deleteHandler'
 import { addValidator } from '../middlewares/validator'
+import { addForumValidator } from '../middlewares/validator'
 
 router.get('/get_data', addValidator, blogHandler)
 router.get('/get_menber' ,addValidator, getMenberHandler)
@@ -16,6 +17,6 @@ router.post('/update_menber' ,addValidator, updateHandler)
 
 router.get('/delete_menber',addValidator, deleteHandler)
 
-router.post('/add_data', addValidator, addHandler)
+router.post('/add_data', addForumValidator, addHandler)
 
 export default router

@@ -9,7 +9,17 @@ const addHandler = async (req, res) => {
             return errorFormat(errors, res)
         }
 
-        console.log(req.body)
+        const { title, name, content } = req.body
+
+        const data = {
+            title,
+            name,
+            content,
+            created_time: new Date()
+        }
+
+        db.collection('forum').insertOne(data)
+
         res.json(req.body)
 
         // const result = await db.collection('members').insertOne({ name: 'mik' })

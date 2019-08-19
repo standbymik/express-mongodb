@@ -10,7 +10,7 @@ import { addValidator } from '../middlewares/validator'
 import { addForumValidator } from '../middlewares/validator'
 
 router.get('/get_data', addValidator, blogHandler)
-router.get('/get_menber' ,addValidator, getMenberHandler)
+router.get('/get_forum' , getMenberHandler)
 router.post('/port_menber' ,addValidator, portMenberHandler)
 
 router.post('/update_menber' ,addValidator, updateHandler)

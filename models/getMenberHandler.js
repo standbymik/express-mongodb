@@ -2,7 +2,7 @@ import mongoConnection from '../connectMongo/mongoClient'
 import { validatorResult, errorFormat } from '../middlewares/validatorResult'
 
 export const getMenberHandler = async (req, res) => {
-    return mongoConnection(async (db) => { 
+    return mongoConnection(async (db) => {
 
         const errors = validatorResult(req)
         if (!errors.isEmpty()) {
@@ -11,14 +11,18 @@ export const getMenberHandler = async (req, res) => {
 
         const { id, names } = req.query
 
-        const data = await db.collection('members').findOne({ name: names })
+        const data = await db.collection('forum').find().toArray()
 
-        const { _id , name } = data
-        if(!data){
-            return res.json({ success : false})
+        if (!data) {
+            return res.json({ success: false })
         }
 
-        return res.json({ success : true , name })
+        const result = {
+            success: true,
+            data
+        }
+
+        return res.json(result)
 
     })
 }
